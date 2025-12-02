@@ -17,7 +17,7 @@ sed -i 's/option device 'docker0'/# option device 'docker0'/g' feeds/packages/ut
 #Turbo ACC 网络加速设置
 git clone --depth 1 https://github.com/tkhot88/nft-fullcone package/nft-fullcone
 git clone --depth 1 -b luci https://github.com/tkhot88/turboacc package/turboacc-luci
-git clone --depth 1 -b package https://github.com/tkhot88/turboacc package/turboacc
+# git clone --depth 1 -b package https://github.com/tkhot88/turboacc package/turboacc
 
 #Passwall
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
