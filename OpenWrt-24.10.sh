@@ -48,8 +48,9 @@ sed -i 's/EXTRA_CFLAGS:=.*/& -Wno-error=misleading-indentation/' package/OpenApp
 
 git clone --depth 1 https://github.com/coolsnowwolf/luci deng-tmp1 && mv deng-tmp1/applications/luci-app-ddns package/deng/luci-app-ddns
 sed -i 's#../../#$(TOPDIR)/feeds/luci/#g' package/deng/luci-app-ddns/Makefile
-git clone --depth 1 https://github.com/coolsnowwolf/packages deng-tmp2 && mv deng-tmp2/net/ddns-scripts package/deng/ddns-scripts && mv deng-tmp2/net/ddns-scripts_aliyun package/deng/ddns-scripts_aliyun && mv deng-tmp2/net/ddns-scripts_dnspod package/deng/ddns-scripts_dnspod
+git clone --depth 1 https://github.com/coolsnowwolf/packages deng-tmp2 && mv deng-tmp2/net/ddns-scripts package/deng/ddns-scripts
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts/Makefile
+git clone --depth 1 https://github.com/coolsnowwolf/lede deng-tmp5 && mv deng-tmp5/net/ddns-scripts_aliyun package/deng/ddns-scripts_aliyun && mv deng-tmp5/net/ddns-scripts_dnspod package/deng/ddns-scripts_dnspod
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts_aliyun/Makefile
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts_dnspod/Makefile
 
