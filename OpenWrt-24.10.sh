@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-# rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-filebrowser
 rm -rf feeds/luci/applications/luci-app-ddns
 rm -rf feeds/packages/net/ddns-scripts
@@ -9,6 +9,10 @@ rm -rf feeds/packages/net/zerotier
 
 sed -i 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
 
+# Docker
+git clone --depth 1 https://github.com/lisaac/luci-app-dockerman package/deng/luci-app-dockerman
+sed -i 's/option iptables '1'/option iptables '0'/g' feeds/packages/utils/dockerd/files/etc/config/dockerd
+sed -i 's/option device 'docker0'/# option device 'docker0'/g' feeds/packages/utils/dockerd/files/etc/config/dockerd
 
 #Turbo ACC 网络加速设置
 git clone --depth 1 https://github.com/tkhot88/nft-fullcone package/nft-fullcone
@@ -30,7 +34,6 @@ git clone --depth 1 https://github.com/lisaac/luci-app-diskman.git package/deng/
 git clone --depth 1 https://github.com/kenzok78/luci-app-adguardhome package/deng/luci-app-adguardhome
 git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/deng/luci-app-ddns-go
 git clone --depth 1 https://github.com/tty228/luci-app-wechatpush.git package/deng/luci-app-wechatpush
-# git clone --depth 1 https://github.com/lisaac/luci-app-dockerman package/deng/luci-app-dockerman
 git clone --depth 1 https://github.com/vernesong/OpenClash.git package/OpenClash
 git clone --depth 1 https://github.com/sirpdboy/luci-app-lucky.git package/deng/luci-app-lucky
 git clone --depth 1 https://github.com/tkhot88/luci-app-filebrowser package/luci-app-filebrowser
@@ -43,9 +46,9 @@ git clone --depth 1 https://github.com/sirpdboy/NetSpeedTest.git package/NetSpee
 git clone --depth 1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 sed -i 's/EXTRA_CFLAGS:=.*/& -Wno-error=misleading-indentation/' package/OpenAppFilter/oaf/Makefile
 
-git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/luci deng-tmp1 && mv deng-tmp1/applications/luci-app-ddns package/deng/luci-app-ddns
+git clone --depth 1 https://github.com/coolsnowwolf/luci deng-tmp1 && mv deng-tmp1/applications/luci-app-ddns package/deng/luci-app-ddns
 sed -i 's#../../#$(TOPDIR)/feeds/luci/#g' package/deng/luci-app-ddns/Makefile
-git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/packages deng-tmp2 && mv deng-tmp2/net/ddns-scripts package/deng/ddns-scripts && mv deng-tmp2/net/ddns-scripts_aliyun package/deng/ddns-scripts_aliyun && mv deng-tmp2/net/ddns-scripts_dnspod package/deng/ddns-scripts_dnspod
+git clone --depth 1 https://github.com/coolsnowwolf/packages deng-tmp2 && mv deng-tmp2/net/ddns-scripts package/deng/ddns-scripts && mv deng-tmp2/net/ddns-scripts_aliyun package/deng/ddns-scripts_aliyun && mv deng-tmp2/net/ddns-scripts_dnspod package/deng/ddns-scripts_dnspod
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts/Makefile
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts_aliyun/Makefile
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts_dnspod/Makefile
