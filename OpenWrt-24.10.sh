@@ -48,25 +48,30 @@ sed -i 's/EXTRA_CFLAGS:=.*/& -Wno-error=misleading-indentation/' package/OpenApp
 
 git clone --depth 1 https://github.com/coolsnowwolf/luci deng-tmp1 && mv deng-tmp1/applications/luci-app-ddns package/deng/luci-app-ddns
 sed -i 's#../../#$(TOPDIR)/feeds/luci/#g' package/deng/luci-app-ddns/Makefile
+
 git clone --depth 1 https://github.com/coolsnowwolf/packages deng-tmp2 && mv deng-tmp2/net/ddns-scripts package/deng/ddns-scripts
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts/Makefile
-git clone --depth 1 https://github.com/coolsnowwolf/lede deng-tmp5 && mv deng-tmp5/package/lean/ddns-scripts_aliyun package/deng/ddns-scripts_aliyun && mv deng-tmp5/package/lean/ddns-scripts_dnspod package/deng/ddns-scripts_dnspod
+
+git clone --depth 1 https://github.com/coolsnowwolf/lede deng-tmp3 && mv deng-tmp3/package/lean/ddns-scripts_aliyun package/deng/ddns-scripts_aliyun && mv deng-tmp3/package/lean/ddns-scripts_dnspod package/deng/ddns-scripts_dnspod
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts_aliyun/Makefile
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts_dnspod/Makefile
 
-git clone --depth 1 https://github.com/immortalwrt/luci deng-tmp3 && mv deng-tmp3/applications/luci-app-zerotier package/deng/luci-app-zerotier
+git clone --depth 1 https://github.com/immortalwrt/luci deng-tmp4 && mv deng-tmp4/applications/luci-app-zerotier package/deng/luci-app-zerotier
 sed -i 's#../../#$(TOPDIR)/feeds/luci/#g' package/deng/luci-app-zerotier/Makefile
-git clone --depth 1 https://github.com/immortalwrt/packages deng-tmp4 && mv deng-tmp4/net/zerotier package/deng/zerotier
+
+git clone --depth 1 https://github.com/immortalwrt/packages deng-tmp5 && mv deng-tmp5/net/zerotier package/deng/zerotier
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/zerotier/Makefile
 
-git clone --depth 1 https://github.com/immortalwrt/luci deng-tmp6 && mv deng-tmp6/applications/luci-app-socat package/deng/luci-app-socat
+git clone --depth 1 https://github.com/coolsnowwolf/luci deng-tmp6 && mv deng-tmp6/applications/luci-app-socat package/deng/luci-app-socat
 sed -i 's#../../#$(TOPDIR)/feeds/luci/#g' package/deng/luci-app-socat/Makefile
-git clone --depth 1 https://github.com/immortalwrt/packages deng-tmp9 && mv deng-tmp9/net/socat package/deng/socat
+
+git clone --depth 1 https://github.com/coolsnowwolf/packages deng-tmp7 && mv deng-tmp7/net/socat package/deng/socat
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/socat/Makefile
 
-git clone --depth 1 https://github.com/immortalwrt/luci deng-tmp7 && mv deng-tmp7/applications/luci-app-vlmcsd package/deng/luci-app-vlmcsd
+git clone --depth 1 https://github.com/immortalwrt/luci deng-tmp8 && mv deng-tmp8/applications/luci-app-vlmcsd package/deng/luci-app-vlmcsd
 sed -i 's#../../#$(TOPDIR)/feeds/luci/#g' package/deng/luci-app-vlmcsd/Makefile
-git clone --depth 1 https://github.com/immortalwrt/packages deng-tmp8 && mv deng-tmp8/net/vlmcsd package/deng/vlmcsd
+
+git clone --depth 1 https://github.com/immortalwrt/packages deng-tmp9 && mv deng-tmp9/net/vlmcsd package/deng/vlmcsd
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/vlmcsd/Makefile
 
 
