@@ -50,9 +50,13 @@ git clone --depth 1 https://github.com/coolsnowwolf/luci deng-tmp1 && mv deng-tm
 sed -i 's#../../#$(TOPDIR)/feeds/luci/#g' package/deng/luci-app-ddns/Makefile
 git clone --depth 1 https://github.com/coolsnowwolf/packages deng-tmp2 && mv deng-tmp2/net/ddns-scripts package/deng/ddns-scripts
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts/Makefile
-git clone --depth 1 https://github.com/coolsnowwolf/lede deng-tmp5 && mv deng-tmp5/net/ddns-scripts_aliyun package/deng/ddns-scripts_aliyun && mv deng-tmp5/net/ddns-scripts_dnspod package/deng/ddns-scripts_dnspod
+git clone --depth 1 https://github.com/coolsnowwolf/lede && cd lede && cp -r package/lean/ddns-scripts_aliyun package/deng/ && cp -r package/lean/ddns-scripts_dnspod package/deng/
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts_aliyun/Makefile
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts_dnspod/Makefile
+
+# git clone --depth 1 https://github.com/coolsnowwolf/lede deng-tmp5 && mv deng-tmp5/net/ddns-scripts_aliyun package/deng/ddns-scripts_aliyun && mv deng-tmp5/net/ddns-scripts_dnspod package/deng/ddns-scripts_dnspod
+# sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts_aliyun/Makefile
+# sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts_dnspod/Makefile
 
 git clone --depth 1 https://github.com/immortalwrt/luci deng-tmp3 && mv deng-tmp3/applications/luci-app-zerotier package/deng/luci-app-zerotier
 sed -i 's#../../#$(TOPDIR)/feeds/luci/#g' package/deng/luci-app-zerotier/Makefile
