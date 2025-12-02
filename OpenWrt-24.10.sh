@@ -11,13 +11,14 @@ sed -i 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' f
 
 # Docker
 git clone --depth 1 https://github.com/lisaac/luci-app-dockerman package/deng/luci-app-dockerman
-sed -i 's/option iptables '1'/option iptables '0'/g' feeds/packages/utils/dockerd/files/etc/config/dockerd
-sed -i 's/option device 'docker0'/# option device 'docker0'/g' feeds/packages/utils/dockerd/files/etc/config/dockerd
+sed -i "s/option iptables '1'/option iptables '0'/g" feeds/packages/utils/dockerd/files/etc/config/dockerd
+sed -i "s/option device 'docker0'/# option device 'docker0'/g" feeds/packages/utils/dockerd/files/etc/config/dockerd
+
 
 #Turbo ACC 网络加速设置
-git clone --depth 1 https://github.com/tkhot88/nft-fullcone package/nft-fullcone
+# git clone --depth 1 https://github.com/tkhot88/nft-fullcone package/nft-fullcone
 git clone --depth 1 -b luci https://github.com/tkhot88/turboacc package/turboacc-luci
-# git clone --depth 1 -b package https://github.com/tkhot88/turboacc package/turboacc
+git clone --depth 1 -b package https://github.com/y12800/turboacc package/turboacc
 
 #Passwall
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
@@ -46,10 +47,10 @@ git clone --depth 1 https://github.com/sirpdboy/NetSpeedTest.git package/NetSpee
 git clone --depth 1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 sed -i 's/EXTRA_CFLAGS:=.*/& -Wno-error=misleading-indentation/' package/OpenAppFilter/oaf/Makefile
 
-git clone --depth 1 https://github.com/coolsnowwolf/luci deng-tmp1 && mv deng-tmp1/applications/luci-app-ddns package/deng/luci-app-ddns
+git clone --depth 1 https://github.com/immortalwrt/luci deng-tmp1 && mv deng-tmp1/applications/luci-app-ddns package/deng/luci-app-ddns
 sed -i 's#../../#$(TOPDIR)/feeds/luci/#g' package/deng/luci-app-ddns/Makefile
 
-git clone --depth 1 https://github.com/coolsnowwolf/packages deng-tmp2 && mv deng-tmp2/net/ddns-scripts package/deng/ddns-scripts
+git clone --depth 1 https://github.com/immortalwrt/packages deng-tmp2 && mv deng-tmp2/net/ddns-scripts package/deng/ddns-scripts
 sed -i 's#../../#$(TOPDIR)/feeds/packages/#g' package/deng/ddns-scripts/Makefile
 
 git clone --depth 1 https://github.com/coolsnowwolf/lede deng-tmp3 && mv deng-tmp3/package/lean/ddns-scripts_aliyun package/deng/ddns-scripts_aliyun && mv deng-tmp3/package/lean/ddns-scripts_dnspod package/deng/ddns-scripts_dnspod
