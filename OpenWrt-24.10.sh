@@ -8,9 +8,9 @@ rm -rf feeds/packages/net/ddns-scripts
 rm -rf feeds/packages/net/zerotier
 
 # 删除官方的 nftables / libnftnl / firewall4
-rm -rf package/libs/libnftnl
-rm -rf package/network/utils/nftables
-rm -rf package/network/config/firewall4
+rm -rf feeds/package/libs/libnftnl
+rm -rf feeds/package/network/utils/nftables
+rm -rf feeds/package/network/config/firewall4
 
 
 sed -i 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
