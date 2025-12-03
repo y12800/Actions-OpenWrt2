@@ -7,6 +7,12 @@ rm -rf feeds/luci/applications/luci-app-ddns
 rm -rf feeds/packages/net/ddns-scripts
 rm -rf feeds/packages/net/zerotier
 
+# 删除官方的 nftables / libnftnl / firewall4
+rm -rf package/libs/libnftnl
+rm -rf package/network/utils/nftables
+rm -rf package/network/config/firewall4
+
+
 sed -i 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
 
 # Docker
@@ -16,9 +22,16 @@ sed -i "s/option iptables '1'/option iptables '0'/g" feeds/packages/utils/docker
 
 
 #Turbo ACC 网络加速设置
-git clone --depth 1 https://github.com/tkhot88/nft-fullcone package/nft-fullcone
-git clone --depth 1 -b luci https://github.com/tkhot88/turboacc package/turboacc-luci
-git clone --depth 1 -b package https://github.com/tkhot88/turboacc package/turboacc
+# git clone --depth 1 https://github.com/tkhot88/nft-fullcone package/nft-fullcone
+# git clone --depth 1 -b luci https://github.com/tkhot88/turboacc package/turboacc-luci
+# git clone --depth 1 -b package https://github.com/tkhot88/turboacc package/turboacc
+# TurboACC 自动安装（官方脚本）
+rm -rf package/turboacc || true
+curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh
+bash add_turboacc.sh --no-sfe
+
+
+
 
 #Passwall
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
