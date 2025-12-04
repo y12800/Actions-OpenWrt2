@@ -22,14 +22,13 @@ sed -i "s/option iptables '1'/option iptables '0'/g" feeds/packages/utils/docker
 
 
 #Turbo ACC 网络加速设置
-# git clone --depth 1 https://github.com/tkhot88/nft-fullcone package/nft-fullcone
-# git clone --depth 1 -b luci https://github.com/tkhot88/turboacc package/turboacc-luci
-# git clone --depth 1 -b package https://github.com/tkhot88/turboacc package/turboacc
-# TurboACC 自动安装（官方脚本）
+# rm -rf package/turboacc || true
+# curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh
+# bash add_turboacc.sh --no-sfe
 rm -rf package/turboacc || true
-curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh
-bash add_turboacc.sh --no-sfe
-
+curl -sSL https://raw.githubusercontent.com/tkhot88/turboacc2/main/turboacc2.sh -o turboacc2.sh
+chmod +x turboacc2.sh
+bash turboacc2.sh
 
 
 
