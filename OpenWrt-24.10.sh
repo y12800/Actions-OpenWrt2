@@ -8,9 +8,9 @@ rm -rf feeds/packages/net/ddns-scripts
 rm -rf feeds/packages/net/zerotier
 
 # 删除官方的 nftables / libnftnl / firewall4
-# rm -rf feeds/package/libs/libnftnl
-# rm -rf feeds/package/network/utils/nftables
-# rm -rf feeds/package/network/config/firewall4
+rm -rf feeds/package/libs/libnftnl
+rm -rf feeds/package/network/utils/nftables
+rm -rf feeds/package/network/config/firewall4
 
 
 sed -i 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
@@ -32,13 +32,14 @@ sed -i 's/+kmod-ipt-physdev \\/+kmod-nft-physdev \\/g' feeds/packages/utils/dock
 
 
 #Turbo ACC 网络加速设置
-# rm -rf package/turboacc || true
-# curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh
-# bash add_turboacc.sh --no-sfe
 rm -rf package/turboacc || true
-curl -sSL https://raw.githubusercontent.com/tkhot88/turboacc2/main/turboacc2.sh -o turboacc2.sh
-chmod +x turboacc2.sh
-bash turboacc2.sh
+curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh
+chmod +x add_turboacc.sh
+bash add_turboacc.sh --no-sfe
+# rm -rf package/turboacc || true
+# curl -sSL https://raw.githubusercontent.com/tkhot88/turboacc2/main/turboacc2.sh -o turboacc2.sh
+# chmod +x turboacc2.sh
+# bash turboacc2.sh
 
 
 
