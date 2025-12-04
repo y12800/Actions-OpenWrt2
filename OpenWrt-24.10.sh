@@ -8,9 +8,9 @@ rm -rf feeds/packages/net/ddns-scripts
 rm -rf feeds/packages/net/zerotier
 
 # 删除官方的 nftables / libnftnl / firewall4
-rm -rf feeds/package/libs/libnftnl
-rm -rf feeds/package/network/utils/nftables
-rm -rf feeds/package/network/config/firewall4
+# rm -rf feeds/package/libs/libnftnl
+# rm -rf feeds/package/network/utils/nftables
+# rm -rf feeds/package/network/config/firewall4
 
 
 sed -i 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
@@ -21,7 +21,10 @@ sed -i "s/option iptables '1'/option iptables '0'/g" feeds/packages/utils/docker
 # sed -i "s/option device 'docker0'/# option device 'docker0'/g" feeds/packages/utils/dockerd/files/etc/config/dockerd
 sed -i 's/+iptables \\/+nftables \\/g' feeds/packages/utils/dockerd/Makefile
 sed -i 's/+iptables-mod-extra \\/+nftables \\/g' feeds/packages/utils/dockerd/Makefile
-
+sed -i 's/+IPV6:ip6tables \\/+IPV6:nftables \\/g' feeds/packages/utils/dockerd/Makefile
+sed -i 's/+IPV6:kmod-ipt-nat6 \\/+IPV6:kmod-nf-nat6 \\/g' feeds/packages/utils/dockerd/Makefile
+sed -i 's/+kmod-ipt-nat \\/+kmod-nft-nat \\/g' feeds/packages/utils/dockerd/Makefile
+sed -i 's/+kmod-ipt-physdev \\/+kmod-nft-physdev \\/g' feeds/packages/utils/dockerd/Makefile
 
 
 
