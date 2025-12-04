@@ -21,10 +21,7 @@ sed -i "s/option iptables '1'/option iptables '0'/g" feeds/packages/utils/docker
 # sed -i "s/option device 'docker0'/# option device 'docker0'/g" feeds/packages/utils/dockerd/files/etc/config/dockerd
 sed -i 's/+iptables \\/+nftables \\/g' feeds/packages/utils/dockerd/Makefile
 sed -i 's/+iptables-mod-extra \\/+nftables \\/g' feeds/packages/utils/dockerd/Makefile
-sed -i 's/+IPV6:ip6tables \\/+IPV6:nftables \\/g' feeds/packages/utils/dockerd/Makefile
-sed -i 's/+IPV6:kmod-ipt-nat6 \\/+IPV6:kmod-nf-nat6 \\/g' feeds/packages/utils/dockerd/Makefile
-sed -i 's/+kmod-ipt-nat \\/+kmod-nft-nat \\/g' feeds/packages/utils/dockerd/Makefile
-sed -i 's/+kmod-ipt-physdev \\/+kmod-nft-physdev \\/g' feeds/packages/utils/dockerd/Makefile
+
 
 
 
